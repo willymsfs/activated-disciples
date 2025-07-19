@@ -6,16 +6,16 @@
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Source Sans 3', sans-serif;
     
-    --color-dark-blue: #1B263B;  /* Deep, rich navy */
-    --color-mid-blue: #415A77;   /* Slate blue */
-    --color-light-blue: #778DA9; /* Muted blue-gray */
-    --color-cream: #E0E1DD;      /* Off-white, elegant cream */
-    --color-gold: #C5A572;       /* Muted, antique gold */
+    --color-dark-blue: #1B263B;
+    --color-mid-blue: #415A77;
+    --color-light-blue: #778DA9;
+    --color-cream: #E0E1DD;
+    --color-gold: #C5A572;
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* Offset for fixed navbar */
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -30,14 +30,14 @@ body {
 
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
 /* 2. Navigation Bar
 -------------------------------------------------- */
 .navbar {
-    background: rgba(27, 38, 59, 0.85); /* Dark Blue with transparency */
+    background: rgba(27, 38, 59, 0.9);
     padding: 1rem 0;
     position: fixed;
     width: 100%;
@@ -57,7 +57,7 @@ body {
 
 .nav-brand {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--color-cream);
     text-decoration: none;
 }
@@ -69,23 +69,20 @@ body {
     display: flex;
 }
 
-.nav-menu li {
-    margin-left: 2.5rem;
-}
+.nav-menu li { margin-left: 1.5rem; }
 
 .nav-menu a {
     color: var(--color-cream);
     text-decoration: none;
     font-weight: 600;
-    font-size: 1rem;
-    letter-spacing: 1px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     transition: color 0.3s ease;
+    padding: 0.5rem;
 }
 
-.nav-menu a:hover {
-    color: var(--color-gold);
-}
+.nav-menu a:hover { color: var(--color-gold); }
 
 /* 3. Header
 -------------------------------------------------- */
@@ -94,10 +91,6 @@ body {
     color: var(--color-cream);
     padding: 10rem 0 8rem 0;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .main-header h1 {
@@ -109,9 +102,10 @@ body {
 
 .main-header .subtitle {
     font-size: 1.5rem;
-    font-weight: 400;
     margin: 1rem 0 2.5rem 0;
     max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta-button {
@@ -133,12 +127,10 @@ body {
 
 /* 4. Content Sections & Cards
 -------------------------------------------------- */
-.content-section {
-    padding: 5rem 0;
-}
+.content-section { padding: 5rem 0; }
 
 .content-section.royal-bg {
-    background-color: #fdfdfd;
+    background-color: #ffffff;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
 }
@@ -169,7 +161,7 @@ body {
     padding: 2.5rem;
     margin: 3rem 0;
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     border: 1px solid #eee;
 }
 
@@ -181,21 +173,11 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* 5. Specific Components (Timeline, Tables, Grids)
+/* 5. Specific Components
 -------------------------------------------------- */
-.illustration {
-    text-align: center;
-    margin: 2rem 0;
-}
-.illustration img {
-    border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-.illustration .caption {
-    font-style: italic;
-    color: var(--color-light-blue);
-    margin-top: 1rem;
-}
+.illustration { text-align: center; margin: 2rem 0; }
+.illustration img { border-radius: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); max-width: 100%; }
+.illustration .caption { font-style: italic; color: var(--color-light-blue); margin-top: 1rem; }
 
 .quote {
     font-style: italic;
@@ -210,90 +192,34 @@ body {
     color: var(--color-dark-blue);
 }
 
-.comparison-table {
-    display: flex;
-    justify-content: space-around;
-    margin: 2rem 0;
-    gap: 2rem;
-}
-.table-column {
-    width: 48%;
-    padding: 1.5rem;
-    border-radius: 8px;
-    background: #f9f9f9;
-}
-.table-column h4 {
-    font-family: var(--font-heading);
-    color: var(--color-mid-blue);
-    text-align: center;
-    margin-top: 0;
-}
-.table-column ul {
-    list-style-position: inside;
-    padding-left: 0;
-}
+.comparison-table { display: flex; justify-content: space-around; margin: 2rem 0; gap: 2rem; flex-wrap: wrap; }
+.table-column { width: 100%; max-width: 400px; padding: 1.5rem; border-radius: 8px; background: #f9f9f9; }
+.table-column h4 { font-family: var(--font-heading); color: var(--color-mid-blue); text-align: center; margin-top: 0; }
+.table-column ul { list-style-position: inside; padding-left: 0; }
 
-.timeline {
-    position: relative;
-    margin: 2rem 0;
-    padding: 1rem 0;
-}
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--color-gold);
-}
-.timeline-item {
-    margin-bottom: 2rem;
-    position: relative;
-    padding-left: 60px;
-}
+.timeline { position: relative; margin: 2rem 0; padding: 1rem 0; }
+.timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 3px; background: var(--color-gold); }
+.timeline-item { margin-bottom: 2rem; position: relative; padding-left: 60px; }
 .timeline-item:last-child { margin-bottom: 0; }
-.timeline-icon {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--color-mid-blue);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    border: 3px solid var(--color-cream);
-}
-.timeline-item h4 {
-    font-family: var(--font-heading);
-    margin: 0 0 0.5rem 0;
-}
+.timeline-icon { position: absolute; left: 0; top: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--color-mid-blue); color: white; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 1.2rem; border: 3px solid var(--color-cream); }
+.timeline-item h4 { font-family: var(--font-heading); margin: 0 0 0.5rem 0; }
 
-.kerygma-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-    margin-top: 2rem;
-}
-.kerygma-card {
-    background: #f9f9f9;
-    padding: 1rem;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-}
-.kerygma-card span {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    color: var(--color-gold);
-    margin-right: 1rem;
-}
+.process-flow { display: flex; justify-content: space-between; text-align: center; margin: 2rem 0; flex-wrap: wrap; }
+.process-step { width: 30%; padding: 1.5rem 1rem; }
+.process-icon { font-size: 3rem; line-height: 1; }
+.process-step h4 { font-family: var(--font-heading); color: var(--color-dark-blue); margin-top: 1rem; }
+
+.discipline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.discipline-card { background: #f9f9f9; padding: 1.5rem; border-radius: 8px; border-top: 4px solid var(--color-gold); text-align: center; }
+.discipline-card h4 { font-family: var(--font-heading); color: var(--color-dark-blue); margin-top: 0; }
+
+.kerygma-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
+.kerygma-card { background: #f9f9f9; padding: 1rem; border-radius: 8px; display: flex; align-items: center; }
+.kerygma-card span { font-family: var(--font-heading); font-size: 2rem; color: var(--color-gold); margin-right: 1rem; }
 .kerygma-card p { margin: 0; }
+
+.example { background: #f0f4f8; border-left: 4px solid var(--color-mid-blue); padding: 1.5rem; margin: 1.5rem 0 0 0; border-radius: 5px; }
+.example h4 { margin-top: 0; color: var(--color-dark-blue); }
 
 /* 6. Footer
 -------------------------------------------------- */
@@ -303,6 +229,13 @@ body {
     background: var(--color-dark-blue);
     color: var(--color-light-blue);
 }
-.main-footer p {
-    margin: 0.5rem 0;
+.main-footer p { margin: 0.5rem 0; }
+
+/* 7. Responsive Adjustments
+-------------------------------------------------- */
+@media (max-width: 768px) {
+    .nav-menu { display: none; } /* Simplification for mobile; a full menu would require JavaScript */
+    .main-header h1 { font-size: 3rem; }
+    .section-title { font-size: 2.2rem; }
+    .process-step { width: 100%; margin-bottom: 1rem; }
 }
