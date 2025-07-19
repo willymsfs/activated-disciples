@@ -1,32 +1,96 @@
 /* General Styling */
+:root {
+    --primary-color: #8B4513; /* Earthy brown */
+    --secondary-color: #5D4037; /* Darker brown */
+    --accent-color: #D2B48C; /* Tan */
+    --light-bg: #f0f8ff; /* AliceBlue */
+    --text-dark: #333;
+    --text-light: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Lato', sans-serif;
-    line-height: 1.6;
+    line-height: 1.7;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    color: #333;
+    color: var(--text-dark);
 }
 
 .container {
-    width: 80%;
+    width: 85%;
+    max-width: 1100px;
     margin: auto;
     overflow: hidden;
-    padding: 0 20px;
+}
+
+/* Navigation Bar */
+.navbar {
+    background: rgba(40, 40, 40, 0.9);
+    color: var(--text-light);
+    padding: 0.75rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-menu li {
+    margin-left: 2rem;
+}
+
+.nav-menu a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--accent-color);
 }
 
 /* Header Styling */
 .main-header {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/oB5gLh0.jpeg' ) no-repeat center center/cover;
-    color: #fff;
-    padding: 4rem 0;
+    color: var(--text-light);
+    padding: 8rem 0 6rem 0;
     text-align: center;
-    border-bottom: 5px solid #8B4513; /* A rich, earthy brown */
+    border-bottom: 5px solid var(--primary-color);
+    margin-top: 60px; /* Offset for fixed navbar */
 }
 
 .main-header h1 {
     font-family: 'Merriweather', serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 0.5rem;
 }
 
@@ -34,7 +98,7 @@ body {
     font-family: 'Merriweather', serif;
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #f0e68c; /* Khaki color for a royal touch */
+    color: var(--accent-color);
 }
 
 .main-header .subtitle {
@@ -42,30 +106,45 @@ body {
     font-style: italic;
 }
 
-/* Section Styling */
-.concept-section {
+/* Content Section Styling */
+.content-section {
+    padding: 4rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.section-title {
+    font-family: 'Merriweather', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 3rem;
+}
+
+/* Concept Card Styling */
+.concept-card {
     background: #fff;
     padding: 2rem;
     margin: 2rem 0;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-left: 5px solid #8B4513;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid var(--primary-color);
 }
 
-.concept-section h3 {
+.concept-card.royal-bg {
+    background-color: var(--light-bg);
+    border-left-color: var(--accent-color);
+}
+
+.concept-card h3 {
     font-family: 'Merriweather', serif;
-    color: #5D4037; /* Darker brown */
-    border-bottom: 2px solid #D2B48C; /* Tan color */
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--accent-color);
     padding-bottom: 10px;
-    margin-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
 }
 
-.royal-bg {
-    background-color: #f0f8ff; /* AliceBlue, a light and regal color */
-    border-left-color: #4682B4; /* SteelBlue */
-}
-
-/* Illustrations and Captions */
+/* Illustrations, Quotes, and Examples */
 .illustration {
     text-align: center;
     margin: 1.5rem 0;
@@ -77,52 +156,23 @@ body {
     margin-top: 0.5rem;
 }
 
-/* Comparison Table */
-.comparison-table {
-    display: flex;
-    justify-content: space-around;
-    margin: 2rem 0;
-    flex-wrap: wrap;
-}
-
-.table-column {
-    width: 45%;
-    padding: 1.5rem;
-    border-radius: 8px;
-    background: #fafafa;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.table-column h4 {
-    font-family: 'Merriweather', serif;
-    color: #8B4513;
-    text-align: center;
-    margin-top: 0;
-}
-
-.table-column ul {
-    list-style-type: '✔ ';
-    padding-left: 20px;
-}
-
-/* Quotes and Examples */
 .quote {
     font-style: italic;
     text-align: center;
     font-size: 1.2rem;
     margin: 2rem auto;
-    padding: 1rem;
-    background: #f0e68c;
-    border-left: 5px solid #8B4513;
+    padding: 1.5rem;
+    background: #fff;
+    border-left: 5px solid var(--primary-color);
     border-radius: 5px;
-    max-width: 80%;
+    max-width: 85%;
 }
 
 .example {
-    background: #e8f5e9; /* A light green */
-    border-left: 4px solid #388e3c; /* A darker green */
+    background: #e8f5e9;
+    border-left: 4px solid #388e3c;
     padding: 1.5rem;
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 0 0;
     border-radius: 5px;
 }
 
@@ -131,13 +181,8 @@ body {
     color: #1b5e20;
 }
 
-/* Summary Section */
-.chapter-summary {
-    border-top: 3px solid #4682B4;
-}
-
-.chapter-summary ul {
-    list-style-type: '❓ ';
+.example ul {
+    padding-left: 20px;
 }
 
 /* Footer */
@@ -145,238 +190,6 @@ body {
     text-align: center;
     padding: 2rem;
     background: #333;
-    color: #fff;
+    color: var(--text-light);
     margin-top: 2rem;
-}
-
-/* Add this to your existing style.css file */
-
-/* Timeline Styling */
-.timeline {
-    position: relative;
-    margin: 2rem 0;
-    padding: 1rem 0;
-    list-style: none;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: #D2B48C; /* Tan color */
-    border-radius: 2px;
-}
-
-.timeline-item {
-    margin-bottom: 2rem;
-    position: relative;
-    padding-left: 50px;
-}
-
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-.timeline-icon {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #8B4513; /* Earthy brown */
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Merriweather', serif;
-    font-size: 1.2rem;
-    border: 3px solid #D2B48C;
-}
-
-.timeline-item h4 {
-    font-family: 'Merriweather', serif;
-    color: #5D4037;
-    margin: 0 0 0.5rem 0;
-}
-
-.timeline-item p {
-    margin: 0;
-}
-/* Add this to your existing style.css file */
-
-/* Process Flow Styling */
-.process-flow {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    margin: 2rem 0;
-    flex-wrap: wrap;
-}
-
-.process-step {
-    width: 30%;
-    padding: 1.5rem 1rem;
-    position: relative;
-}
-
-.process-step h4 {
-    font-family: 'Merriweather', serif;
-    color: #5D4037;
-    margin-top: 1rem;
-}
-
-.process-icon {
-    font-size: 3rem;
-    line-height: 1;
-}
-
-/* Add arrows for larger screens */
-@media (min-width: 768px) {
-    .process-step:not(:last-child)::after {
-        content: '→';
-        font-size: 3rem;
-        color: #D2B48C;
-        position: absolute;
-        right: -25px;
-        top: 30%;
-        transform: translateY(-50%);
-    }
-}
-
-/* Adjust for smaller screens */
-@media (max-width: 767px) {
-    .process-step {
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-    .process-step:not(:last-child)::after {
-        content: '↓';
-        font-size: 2rem;
-        color: #D2B48C;
-        position: absolute;
-        bottom: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-
-/* Add this to your existing style.css file */
-
-/* Discipline Grid Styling */
-.discipline-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.discipline-card {
-    background: #ffffff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-top: 4px solid #8B4513;
-    text-align: center;
-}
-
-.discipline-card h4 {
-    font-family: 'Merriweather', serif;
-    color: #5D4037;
-    margin-top: 0;
-}
-
-/* Add this to your existing style.css file */
-
-/* Kerygma Grid Styling */
-.kerygma-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
-}
-
-.kerygma-card {
-    background: #ffffff;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    min-height: 80px;
-}
-
-.kerygma-card span {
-    font-family: 'Merriweather', serif;
-    font-size: 2.5rem;
-    color: #8B4513;
-    margin-right: 1.5rem;
-    line-height: 1;
-}
-
-.kerygma-card p {
-    margin: 0;
-    font-size: 1.1rem;
-    flex: 1;
-}
-
-/* Adjust timeline icons for this chapter's specific use */
-.timeline-item .timeline-icon {
-    font-size: 1.5rem; /* Make icon text smaller for letters */
-}
-
-/* Add this to your existing style.css file */
-
-/* Kerygma List Styling */
-.kerygma-list {
-    list-style-type: none;
-    padding-left: 0;
-    font-family: 'Lato', sans-serif;
-    font-size: 1.1rem;
-    margin-top: 1.5rem;
-}
-
-.kerygma-list li {
-    background: #fafafa;
-    margin-bottom: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-left: 5px solid #D2B48C;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.kerygma-list li::before {
-    content: '✔';
-    color: #8B4513;
-    font-weight: bold;
-    margin-right: 1rem;
-}
-/* Add this to your existing style.css file */
-
-/* Roadmap Grid Styling */
-.roadmap-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.roadmap-item {
-    background: #fafafa;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-bottom: 4px solid #8B4513;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.roadmap-item h4 {
-    font-family: 'Merriweather', serif;
-    color: #5D4037;
-    margin-top: 0;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
 }
