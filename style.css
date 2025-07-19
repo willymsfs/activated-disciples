@@ -1,45 +1,52 @@
-/* General Styling */
+/* --- The Activated Disciple: Royal & Elegant Stylesheet --- */
+
+/* 1. Root Variables & Basic Setup
+-------------------------------------------------- */
 :root {
-    --primary-color: #8B4513; /* Earthy brown */
-    --secondary-color: #5D4037; /* Darker brown */
-    --accent-color: #D2B48C; /* Tan */
-    --light-bg: #f0f8ff; /* AliceBlue */
-    --text-dark: #333;
-    --text-light: #fff;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Source Sans 3', sans-serif;
+    
+    --color-dark-blue: #1B263B;  /* Deep, rich navy */
+    --color-mid-blue: #415A77;   /* Slate blue */
+    --color-light-blue: #778DA9; /* Muted blue-gray */
+    --color-cream: #E0E1DD;      /* Off-white, elegant cream */
+    --color-gold: #C5A572;       /* Muted, antique gold */
 }
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Offset for fixed navbar */
 }
 
 body {
-    font-family: 'Lato', sans-serif;
-    line-height: 1.7;
+    font-family: var(--font-body );
+    line-height: 1.8;
+    font-size: 18px;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: var(--text-dark);
+    background-color: #f9f9f9;
+    color: var(--color-dark-blue);
 }
 
 .container {
-    width: 85%;
-    max-width: 1100px;
-    margin: auto;
-    overflow: hidden;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Navigation Bar */
+/* 2. Navigation Bar
+-------------------------------------------------- */
 .navbar {
-    background: rgba(40, 40, 40, 0.9);
-    color: var(--text-light);
-    padding: 0.75rem 0;
+    background: rgba(27, 38, 59, 0.85); /* Dark Blue with transparency */
+    padding: 1rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    transition: background 0.3s ease;
 }
 
 .nav-container {
@@ -49,10 +56,9 @@ body {
 }
 
 .nav-brand {
-    font-family: 'Merriweather', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-light);
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-cream);
     text-decoration: none;
 }
 
@@ -64,132 +70,239 @@ body {
 }
 
 .nav-menu li {
-    margin-left: 2rem;
+    margin-left: 2.5rem;
 }
 
 .nav-menu a {
-    color: var(--text-light);
+    color: var(--color-cream);
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     transition: color 0.3s ease;
 }
 
 .nav-menu a:hover {
-    color: var(--accent-color);
+    color: var(--color-gold);
 }
 
-/* Header Styling */
+/* 3. Header
+-------------------------------------------------- */
 .main-header {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/oB5gLh0.jpeg' ) no-repeat center center/cover;
-    color: var(--text-light);
-    padding: 8rem 0 6rem 0;
+    background: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.7)), url('https://picsum.photos/seed/header/1920/1080' ) no-repeat center center/cover;
+    color: var(--color-cream);
+    padding: 10rem 0 8rem 0;
     text-align: center;
-    border-bottom: 5px solid var(--primary-color);
-    margin-top: 60px; /* Offset for fixed navbar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-header h1 {
-    font-family: 'Merriweather', serif;
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.main-header h2 {
-    font-family: 'Merriweather', serif;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--accent-color);
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
 }
 
 .main-header .subtitle {
-    font-size: 1.2rem;
-    font-style: italic;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 1rem 0 2.5rem 0;
+    max-width: 600px;
 }
 
-/* Content Section Styling */
+.cta-button {
+    background: var(--color-gold);
+    color: var(--color-dark-blue);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+    background: var(--color-cream);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* 4. Content Sections & Cards
+-------------------------------------------------- */
 .content-section {
-    padding: 4rem 0;
-    border-bottom: 1px solid #ddd;
+    padding: 5rem 0;
+}
+
+.content-section.royal-bg {
+    background-color: #fdfdfd;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 }
 
 .section-title {
-    font-family: 'Merriweather', serif;
-    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    font-size: 3rem;
     text-align: center;
-    color: var(--secondary-color);
-    margin-bottom: 3rem;
+    color: var(--color-dark-blue);
+    margin-bottom: 1rem;
 }
 
-/* Concept Card Styling */
+.section-title span {
+    color: var(--color-gold);
+    margin-right: 0.5rem;
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+    color: var(--color-mid-blue);
+}
+
 .concept-card {
     background: #fff;
-    padding: 2rem;
-    margin: 2rem 0;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    border-left: 5px solid var(--primary-color);
-}
-
-.concept-card.royal-bg {
-    background-color: var(--light-bg);
-    border-left-color: var(--accent-color);
+    padding: 2.5rem;
+    margin: 3rem 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    border: 1px solid #eee;
 }
 
 .concept-card h3 {
-    font-family: 'Merriweather', serif;
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 10px;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-dark-blue);
     margin-top: 0;
     margin-bottom: 1.5rem;
 }
 
-/* Illustrations, Quotes, and Examples */
+/* 5. Specific Components (Timeline, Tables, Grids)
+-------------------------------------------------- */
 .illustration {
     text-align: center;
-    margin: 1.5rem 0;
+    margin: 2rem 0;
 }
-
+.illustration img {
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
 .illustration .caption {
     font-style: italic;
-    color: #666;
-    margin-top: 0.5rem;
+    color: var(--color-light-blue);
+    margin-top: 1rem;
 }
 
 .quote {
     font-style: italic;
     text-align: center;
-    font-size: 1.2rem;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    background: #fff;
-    border-left: 5px solid var(--primary-color);
+    font-size: 1.3rem;
+    margin: 2.5rem auto;
+    padding: 2rem;
+    background: var(--color-cream);
+    border-left: 5px solid var(--color-gold);
     border-radius: 5px;
-    max-width: 85%;
+    max-width: 80%;
+    color: var(--color-dark-blue);
 }
 
-.example {
-    background: #e8f5e9;
-    border-left: 4px solid #388e3c;
-    padding: 1.5rem;
-    margin: 1.5rem 0 0 0;
-    border-radius: 5px;
+.comparison-table {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+    gap: 2rem;
 }
-
-.example h4 {
+.table-column {
+    width: 48%;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+.table-column h4 {
+    font-family: var(--font-heading);
+    color: var(--color-mid-blue);
+    text-align: center;
     margin-top: 0;
-    color: #1b5e20;
+}
+.table-column ul {
+    list-style-position: inside;
+    padding-left: 0;
 }
 
-.example ul {
-    padding-left: 20px;
+.timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding: 1rem 0;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--color-gold);
+}
+.timeline-item {
+    margin-bottom: 2rem;
+    position: relative;
+    padding-left: 60px;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-mid-blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    border: 3px solid var(--color-cream);
+}
+.timeline-item h4 {
+    font-family: var(--font-heading);
+    margin: 0 0 0.5rem 0;
 }
 
-/* Footer */
+.kerygma-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.kerygma-card {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+.kerygma-card span {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-gold);
+    margin-right: 1rem;
+}
+.kerygma-card p { margin: 0; }
+
+/* 6. Footer
+-------------------------------------------------- */
 .main-footer {
     text-align: center;
-    padding: 2rem;
-    background: #333;
-    color: var(--text-light);
-    margin-top: 2rem;
+    padding: 3rem 0;
+    background: var(--color-dark-blue);
+    color: var(--color-light-blue);
+}
+.main-footer p {
+    margin: 0.5rem 0;
 }
